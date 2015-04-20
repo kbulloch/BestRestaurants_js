@@ -6,4 +6,10 @@ restaurantList.controller('RestaurantsCtrl', function RestaurantsCtrl($scope) {
     { name: "McCoodle's", cuisine: "Noodles", bar: false },
     { name: "Matadoir", cuisine: "Mexican", bar: true }
   ];
-})
+  $scope.addRestaurant = function() {
+    $scope.restaurants.push({ name: $scope.restaurantName, cuisine: $scope.cuisine, bar: $scope.bar });
+    $scope.restaurantName = null;
+    $scope.cuisine = null;
+    $scope.bar = false;
+  };
+});
