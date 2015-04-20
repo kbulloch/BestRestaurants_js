@@ -7,13 +7,16 @@ restaurantList.controller('RestaurantsCtrl', function RestaurantsCtrl($scope) {
     { name: "Matadoir", cuisine: "Mexican", bar: true }
   ];
   $scope.addRestaurant = function() {
-    $scope.restaurants.push({ name: $scope.restaurantName, cuisine: $scope.cuisine, bar: $scope.bar });
+    $scope.restaurants.push({ name: $scope.restaurantName,
+      cuisine: $scope.cuisine,
+      bar: $scope.bar });
     $scope.restaurantName = null;
     $scope.cuisine = null;
     $scope.bar = false;
+    $scope.review = null;
   };
   $scope.deleteRestaurant = function(restaurant) {
     var index = $scope.restaurants.indexOf(restaurant);
     $scope.restaurants.splice(index, 1);
-  }
+  };
 });

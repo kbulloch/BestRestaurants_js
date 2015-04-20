@@ -40,7 +40,14 @@
                  </form>
               </span>
               <li ng-show="item.bar" class="glyphicon glyphicon-glass"></li>
-              <button ng-click="deleteRestaurant(item)" class="btn btn-danger btn-xs">X</button>
+              <li ng-click="showreview = true" ng-hide="item.review">Review</li>
+              <li ng-show="item.review">{{item.review}}</li>
+
+              <form class="form-inline" role="form" ng-submit="showreview = false" >
+                <input ng-model="item.review" type="text" ng-show="showreview">
+                <button type="submit" ng-show="showreview" class="btn btn-warning btn-xs">Review</button>
+              </form>
+              <button ng-click="deleteRestaurant(item)" ng-hide="showreview" class="btn btn-danger btn-xs">X</button>
             </ul>
           </li>
         </ul>
