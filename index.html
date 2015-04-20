@@ -16,8 +16,9 @@
           <li ng-repeat="item in restaurants">
             {{item.name}}
             <ul>
-              <li>{{item.cuisine}}</li>
-              <li ng-show="item.bar">Serves Alcohol</li>
+              {{item.cuisine}}
+              <li ng-show="item.bar" class="glyphicon glyphicon-glass"></li>
+              <button ng-click="deleteRestaurant(item)" class="btn btn-danger btn-xs">X</button>
             </ul>
           </li>
         </ul>
