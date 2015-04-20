@@ -22,9 +22,23 @@
         <h2>Restaurant List</h2>
         <ul>
           <li ng-repeat="item in filtered = (restaurants | filter:query)">
-            {{item.name}}
+            <span ng-click="editing = true" ng-hide="editing">{{item.name}}</span>
+            <span class="form-group" ng-show="editing" ng-submit="editing = false">
+              <form class="form-inline" role="form">
+                <input type="text" class="form-control input-sm" ng-model="item.name" placeholder={{item.name}} required/>
+                <button class="btn btn-info btn-xs" type="submit">Save</button>
+              </form>
+            </span>
             <ul>
+              <span ng-click="editcuisine = true" ng-hide="editcuisine">
               {{item.cuisine}}
+              </span>
+              <span class="form-group" ng-show="editcuisine" ng-submit="editcuisine = false">
+                <form class="form-inline" role="form">
+                  <input type="text" class="form-control input-sm" ng-model="item.cuisine" placeholder={{item.cuisine}} required/>
+                   <button class="btn btn-info btn-xs" type="submit">Save</button>
+                 </form>
+              </span>
               <li ng-show="item.bar" class="glyphicon glyphicon-glass"></li>
               <button ng-click="deleteRestaurant(item)" class="btn btn-danger btn-xs">X</button>
             </ul>
